@@ -1,0 +1,45 @@
+* Compiling with GCC
+** gcc -c file.c compiles file.c to object code
+** -I enables us to pass include dirs to the compiler
+** define macros during compilation using -DKEY=VALUE
+** -O<level> will enable <level> optimizations
+*** level=2 suitable for most
+*** Harder to debug if optimized
+*** Can potentially uncover bugs
+
+* Linking object files
+** g++ -o foo x.o y.o -L /usr/lib -lpam
+*** Use g++ if its C U C++
+*** Use gcc if its just C
+** -L to specify linker search directories (similar to -I during compilation)
+*** May want to add -L. to include current directory
+** -l to link with a specific library (Ex: -lpam)
+*** Linker will automatically add lib prefix and .a suffix 
+*** Linker will search for this library in default linker search dirs ++ the dirs passed through -D
+
+* Automating builds with Make
+** Specifies targets, dependencies and how to archieve the target from dependencies
+** First target is the default one unless explicitly called out
+** CFLAGS variables can be used to pass compile time flags. We can override variables while invokation
+** It tracks changes for files and recompiles based on dependencies
+
+* Debugging with GDB
+** Compile using -g to enable debug information
+** gdb ./a.out
+*** `run <args>` command to run the executable
+*** `break <filename>:<line|func name>` to set breakpoint
+*** `where` to get error traceback
+*** `up` to traverse the stacktrace
+*** `print <var>` to print the value of variables
+*** `step` to proceed one step at a time
+
+* Documentation
+** man command levels
+*** 1 => command
+*** 2 => sys calls
+*** 3 => standard lib funcs
+*** 8 => system / admin commands
+** `man -k <keyword>` to search for levels for the keyword
+** view detailed documentation for some commands using `info` command
+** Header files for core libs are in /usr/include/asm , /usr/include/bits , /usr/include/linux
+*** optionally, Linux source code could be at /usr/src/linux
