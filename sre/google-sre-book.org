@@ -1,0 +1,30 @@
+* Chapter 1: Introduction
+** "Hope is not a strategy...", Benjamin Treynor Sloss
+** sysadmin vs sre approach:
+*** pros:
+1. Perfect skillset fit for each of the teams, as they are hired for their expertise
+*** cons
+1. Direct cost: Forced to scale up ops team since things are manual
+2. Indirect cost: More expensive, different background, vocab, skillset and goals
+leading to communication issues, lack of trust and conflicts leading to a mess.
+3. Ops team focussed on "not touch a running system to avoid downtime"; dev team focussed
+on rolling out new features. Conflict in goals
+** SRE approach:
+1. Software engineers running services.
+2. 85-90% of SWE skillset + ops skillset (OS, Kernel, Layer 1,2,3 networking skills)
+3. 50% effort for ops work, 50% innovating / writing code to get to automatic from automated.
+4. If crosses 50%, offload to dev teams, hire more, etc..
+** Tenets of SRE: availability, latency, performance, efficiency, change management, monitoring, emergency response, capacity planning
+1. Ensure 50% - 50% focus on ops, engineering.
+2. To avoid conflicts between new features vs stability, consider concept of error budget.
+3. Error budges are framed by product teams.
+4. Monitoring: primary means for owners to keep track of health, status etc.. Email based monitoring is flawed.
+Software to interpret issues and respond as much as possible before falling back to humands.
+5. Monitoring outputs : Alerts, tickets and logging
+6. Emergency response: Mean time to failure (MTTF) and mean time to repair (MTTR). Humands add more latency and make MTTR worse.
+Prefer on-call engineers with runbooks or playbooks.
+7. Change mangement: 70% of issues due to new changes. Address : progressive rollouts, detecting problems and roll backs for deployments.
+8. Demand forecasting and capacity planning: forecast organic growth (user base), inorganic growth (features) and correlation between
+raw capacity (cpu, ram etc..) to service capacity.
+9. Provisioning
+10. Efficiency and performance: infra is $$$, need balance between availability, performance etc.. vs efficiency.
